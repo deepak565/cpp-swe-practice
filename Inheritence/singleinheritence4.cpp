@@ -36,10 +36,10 @@ int main() {
 
 Bike *b = new Bike(6723925, "Chimakurthi Manikanta Deepak" , 1, "BMW 1250 GS ADVENTURE");
 
-// b->Vehicle::display();
-// b->display();
-// b->visible();
-// b->show();
+b->Vehicle::display();
+b->display();
+b->visible();
+b->show();
 
 std::cout<<"==========="<<std::endl;
 // if virtual is present then it will call derived class display() if no virtual then it will call base class display() if no 
