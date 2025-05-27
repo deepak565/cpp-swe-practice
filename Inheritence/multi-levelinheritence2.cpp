@@ -20,7 +20,7 @@ class Cat : public Animal {
 public:
     string name;
     Cat(string name1) : name(name1), Animal(name1) {
-        cout<<" Cat Name is  "<<name<<endl;
+        cout<<"Cat Name is  "<<name<<endl;
     }
     void display() {
         // display(); // This will call same class display multiple time so

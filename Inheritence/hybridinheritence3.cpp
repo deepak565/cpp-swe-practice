@@ -1,13 +1,9 @@
-Question 2: Vehicle Management Hybrid Inheritance
-Create a base class Vehicle with members like brand and model.
-
-Derive a class Car from Vehicle, adding numberOfDoors.
-
-Derive another class ElectricVehicle from Vehicle, adding batteryCapacity.
-
-Create a class ElectricCar that inherits from both Car and ElectricVehicle.
-
-Demonstrate how to use virtual inheritance to avoid ambiguity and implement a function to display details of ElectricCar.
+// Question 2: Vehicle Management Hybrid Inheritance
+// Create a base class Vehicle with members like brand and model.
+// Derive a class Car from Vehicle, adding numberOfDoors.
+// Derive another class ElectricVehicle from Vehicle, adding batteryCapacity.
+// Create a class ElectricCar that inherits from both Car and ElectricVehicle.
+// Demonstrate how to use virtual inheritance to avoid ambiguity and implement a function to display details of ElectricCar.
 
 
 #include <iostream>
@@ -23,13 +19,13 @@ public:
 	brand = vehicleBrandName;
 	}
 	void setVehicleModel(const string &vehicleModelName) {
-	return model;
+	model = vehicleModelName;
 	}
 	string getVehicleBrand() {
 	return brand;
 	}
 	string getVehicleModel() {
-	retun model;
+	return model;
 	}
 };
 
@@ -38,22 +34,22 @@ int numberOfDoors;
 public:
 	Car() {}
 	void setNumberofDoors(int numofDoors) {
-	numberofDoors = numofDoors;
+	numberOfDoors = numofDoors;
 	}
 	int getnumberOfDoors() {
-	return numberofDoors;
+	return numberOfDoors;
 	}
 };
 
-class ElectricVehicle : virtual public vehicle {
+class ElectricVehicle : virtual public Vehicle {
 string batteryCapacity;
 public:
 
 	ElectricVehicle() {}
 	void setbatteryCapacity(const string &batteryCap) {
-	batteryCapacity = batteyrCap;
+	batteryCapacity = batteryCap;
 	}
-	int getbatteryCapacity(){
+	string getbatteryCapacity(){
 	return batteryCapacity;
 	}
 };
@@ -67,13 +63,12 @@ public:
 	setNumberofDoors(4);
 	setbatteryCapacity("59 kwh");
 	}
-	displayDetails(){
-	getVehicleBrand();
-	getVehicleModel();
-	getnumberOfDoors();
-	getbatteryCapacity();
+	void displayDetails(){
+    cout<<"Vehicle Brand :"<<getVehicleBrand()<<endl;
+	cout<<"Vehicle Model :"<<getVehicleModel()<<endl;
+	cout<<"Number of Doors :"<<getnumberOfDoors()<<endl;
+	cout<<"Battery Capacity :"<<getbatteryCapacity()<<endl;
 	}
-	
 };
 
 int main() {
