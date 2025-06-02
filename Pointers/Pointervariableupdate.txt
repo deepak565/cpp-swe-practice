@@ -1,0 +1,36 @@
+// 2.Pointer and Value Update
+
+// #include <iostream>
+
+
+// void doubleValue(int *x) {
+// 	*x = *x * 2;
+// }
+
+// int main() {
+// int x = 10;
+
+// std::cout<<"Valus of x Before Doubling :"<<x<<std::endl;
+// doubleValue(&x);
+// std::cout<<"Value of X after Doubling :"<<x<<std::endl;
+
+// return 0;
+// }
+// ======================================
+
+// call by reference
+#include <iostream>
+
+void doubleValue(int &x) {
+    x = x * 2;
+}
+
+int main() {
+    int x = 10;              // Correct: declaring an int variable
+    doubleValue(x);          // Pass by reference
+    std::cout << "Doubled value: " << x << std::endl;
+
+    return 0;
+}
+
+
