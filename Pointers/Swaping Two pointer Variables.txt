@@ -1,0 +1,42 @@
+// 1.Swap Two Integers using pointer variables
+
+#include <iostream>
+using namespace std;
+
+class Swaping {
+public:
+Swaping(){}
+void Swap(int *x, int *y) {
+// 	int temp = *x;
+// 	*x = *y;
+// 	*y = temp;
+
+*x = *x + *y;   // x = 10 + 20 , x= 30;
+*y = *x - *y;   // y = 30 - 20 , y = 10;
+*x = *x - *y;   // x = 30 - 10 , x = 20  (x = 20, y = 10)
+}
+
+
+};
+
+int main() {
+int x=10, y=20;
+
+std::cout<<"Value Of X Before  Swaping : "<<x<<endl;
+std::cout<<"Value Of Y Before Swaping : "<<y<<endl;
+Swaping s;
+s.Swap(&x,&y);
+std::cout<<"Value Of X After Swaping : "<<x<<endl;
+std::cout<<"Value Of Y After Swaping : "<<y<<endl;
+
+return 0;
+}
+
+
+
+// Logic-2 without 3rd variable
+// x = 10 , y = 20;
+
+// *x = *x + *y;   // x = 10 + 20 , x= 30;
+// *y = *x - *y;   // y = 30 - 20 , y = 10;
+// *x = *x - *y;   // x = 30 - 10 , x = 20  (x = 20, y = 10)
