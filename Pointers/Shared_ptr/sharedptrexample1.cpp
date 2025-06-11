@@ -28,6 +28,5 @@ int main() {
     }
     std::cout<<"Count :"<<d1.use_count()<<std::endl;
     
-    
  return 0;
 }
