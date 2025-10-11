@@ -1,0 +1,100 @@
+==============================================================================INHERITENCE================================================================================
+inheritance:
+-----------
+1.what is inheritance?
+**********************
+
+Definition:-
+------------
+Inheritance is one of the Object Oriented Programming feature that allows once class can acquire properties and behaviour of another class
+
+1.code Reusability--------->Avoids rewriting the same code by reusing parent class logic.
+2.Improved Maintainability->common Logic(like logging, validations) can be centralized in base class.
+3.Polymorphism Support-> Enables runtime polymorphism (virtual functions ,dynamic binding).
+4.Hierarchial Representation-> Real world Relationships like "Animal->Dog", "Vehicle->Car" can be modeled naturally.
+5.Extensibility-> You can add new features in derived class without changing existing code.
+6.Reduced Redundancy-> Shared members across multiple classes can be defined once in base class
+7.Encapsulation with Inheritance -> Base class can hide internal details but still allow derived classes to use protected members.
+8.Ease of Maintenance ->bug Fixes or enhancements in base class will automatically apply to all derived classes.
+9.Abstract base classes-> You can define interfaces or pure virtual classes for enforcing design contracts.
+10.Framework and library Design ->inheritance is foundation of event systems, GUI hierarchies, drivers.
+
+
+
+2.Types of inheritance in C++
+*****************************
+C++ supports 5 major types of inheritance:
+1.Single inheritance
+2.Multiple inheritance
+3.Multilevel inheritance
+4.Hierarchical inheritance
+5.Hybrid (Virtual) inheritance
+
+
+1.Single inheritance
+********************
+
+Definition:-
+------------
+A single derived class inherited from only one base class.
+
+1.Used when Specialization is required ->e.g., Dog is a specific Type of Animal.
+2.inherits both data and functions ->Derived class will gets access to all accessible base class members
+3.Access Modifiers matters -> public, protected and private inheritance changes accessibility.
+4.public inheritance "is->a" relationship  ->Dog is a Animal
+5.Base constructor called Automatically  ->Before Derived class constructor executes.
+6.Suitable for small and simple class hierarchies.
+*******************************Try to cover Relatable Definition points also******************************
+
+
+Doubts - solutions
+1. we can create object for base class directly without including derived class
+2.if we create object for derived class base class constructor will be called automatically we cannot exclude it
+3.Object creation Normal vs pointer:-
+->Normal(stack) object:-
+------------------------
+Ex:- Parent p(45,"Madhavi");
+
+->Created on Stack.
+->Automatically destroyed when it goes out of scope
+->No need to manually delete
+->Efficient and simple
+
+->Pointer Object(Heap Allocation):-
+-----------------------------------
+Parent *p = new Parent(45,"madhavi");
+
+->Created on heap.
+->must be manually deleted to avoid memory leaks
+	Ex: delete p;
+->More flexible: object lifetime is controlled manually.
+->Required for dynamic polymorphism(virtual functions)
+
+4.Compile Time vs Run Time(Polymorphism & binding):-
+->Compile Time Binding(Early Binding)
+-------------------------------------
+->Happens when using normal Object(not via base class pointers).
+->Method call is resolved during compilation
+->Does not support polymorphism
+
+Parent p;
+p.display();  // Compile-time decision: calls Parent::display()
+
+->Run Time Binding(Late Binding)
+--------------------------------
+->Happens only when using pointers or reference to base class
+->Method call is resolved at runtime using virtual tables(vtable).
+->Requires virtual functions.
+
+Parent* p = new child(...);  // base class pointer, pointing to derived object
+p->display();                // If `display()` is virtual, derived version is called
+
+Condition for runtime polymorphism:-
+Use base class pointer or reference
+Base class must declare the function virtual
+Derived class must override it
+
+5.Code Example: Compare Stack vs Heap + Polymorphism
+----------------------------------------------------
+check singleinheritence6.cpp
+
