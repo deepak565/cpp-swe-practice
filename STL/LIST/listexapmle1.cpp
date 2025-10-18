@@ -1,6 +1,7 @@
 #include <iostream>
 #include <list>
 #include <string>
+#include <algorithm>
 using namespace std;
 
 class ListExample{
