@@ -1,0 +1,313 @@
+========================================Arrays:=======================================
+1.Definition:
+-----------
+An Array is an collection of elements of the same Data type, stored in contiguous memory location
+and accessed using an index.
+
+Example:
+--------
+int arr[5] = {1,2,3,4,5};
+
+->index starts at 0
+->fixed in size(can't change dynamically)
+->stored contiguous in memory location
+
+2.Array Declaration and initliazation
+-------------------------------------
+
+int arr[5];  //uninitlialized
+int arr[] = {1,2,3,4,5}; // size auto detected
+int arr[5] = {1,2};  // remaining values with 0
+
+4- Types of Arrays:
+------------------
+
+| Type                   | Description            | Example                   |
+| ---------------------- | ---------------------- | ------------------------- |
+| 1D Array               | Single row of elements | `int arr[5];`             |
+| 2D Array               | Matrix-like            | `int matrix[3][3];`       |
+| 3D Array               | 3D data storage        | `int arr[2][3][4];`       |
+| Dynamic Array          | Allocated in heap      | `int* arr = new int[n];`  |
+| STL Array              | Fixed-size container   | `std::array<int, 5> arr;` |
+| Vector (Dynamic Array) | Resizable container    | `std::vector<int> v;`     |
+
+Arrays are const and can't be resizable at run -time if need to resize need to use Vector
+
+1.Static Array(Fixed size known at compile time.):-
+int arr[5]; ->static array memory in stack
+
+2.dynamic array(Size decided at runtime using heap memory.)
+int *arr = new arr[5]; ->dynamic array memory in heap
+
+3.Multidimensional Array(Used for matrices, grids, etc.)
+int arr[3][3] = {{1,2,3},{4,5,6},{7,8,9}};
+cout << arr[1][2]; // 6
+
+4.jaggered Array(Array of pointers, where each row has a different length.)
+int *arr[3];
+arr = new int[3];
+arr1 = new int[4];
+arr2 = new int[5];
+
+->Arrays decay to pointers when passed to functions.
+
+->Multi -Dimensional Array
+--------------------------
+int arr[2][3] = {{1,2,3}, {4,5,6}};
+
+
+Pointers and Arrays
+-------------------
+arr is a pointer to the first element.
+*(arr + i) == arr[i]
+arr + i gives address of ith element.
+
+Accessing elements:-
+--------------------
+cout << arr[1];     // using index
+cout << *(arr + 1); // using pointer
+
+Pointer and Array Relationship
+int arr[3] = {10, 20, 30};
+int* p = arr;
+cout << *(p + 1); // 20
+
+✅ arr and &arr[0] give same address.
+🚫 But arr is not a pointer variable — it’s a constant address.
+
+Array Decay
+
+When passed to a function, arrays decay to a pointer to the first element.
+Hence, sizeof(arr) inside a function gives size of pointer, not entire array.
+
+
+
+Questions:-
+==========
+🟢 Level 1: Basics (Beginner)
+-----------------------------
+1.Find the largest element in an array
+2.Find the smallest element in an array
+3.Find the sum of all elements
+
+Reverse an array
+
+Find average of elements
+
+Search an element linearly
+
+Count even and odd numbers
+
+Copy one array to another
+
+Find the second largest element
+
+Check if array is sorted
+
+🟡 Level 2: Intermediate
+
+Remove duplicates from sorted array
+
+Move all zeros to the end
+
+Rotate array by one position
+
+Rotate array by K positions (cyclic)
+
+Find missing number in 1..n sequence
+
+Find all pairs with given sum
+
+Find frequency of each element
+
+Merge two sorted arrays
+
+Find intersection of two arrays
+
+Find union of two arrays
+
+Find common elements in three arrays
+
+Left rotate / right rotate array by K
+
+Count number of occurrences of x
+
+Reverse array in groups of K
+
+Find index of first repeating element
+
+🔵 Level 3: Subarray & Prefix Problems
+
+Kadane’s algorithm (max subarray sum)
+
+Subarray with given sum
+
+Longest subarray with sum = 0
+
+Subarray with equal 0s and 1s
+
+Maximum circular subarray sum
+
+Equilibrium index (prefix sum)
+
+Maximum product subarray
+
+Range sum query (prefix array)
+
+Count subarrays with given XOR
+
+Subarray with sum divisible by K
+
+🟣 Level 4: Two Pointer & Sliding Window
+
+Find pair with target sum (sorted array)
+
+Trapping Rain Water
+
+Container With Most Water
+
+Maximum sum subarray of size K
+
+Minimum size subarray with sum ≥ target
+
+Longest substring without repeating characters (string as array)
+
+Find duplicates without extra space
+
+Sort 0s, 1s, and 2s (Dutch flag problem)
+
+Merge intervals
+
+Minimum swaps to bring K elements together
+
+🔴 Level 5: Sorting / Searching
+
+Implement Bubble sort
+
+Implement Selection sort
+
+Implement Insertion sort
+
+Implement Merge sort
+
+Implement Quick sort
+
+Binary search (iterative)
+
+Binary search (recursive)
+
+Find first and last position of element
+
+Find number of rotations in rotated sorted array
+
+Search element in rotated sorted array
+
+⚫ Level 6: Advanced / 5+ Years
+
+Find peak element
+
+Majority element (Boyer–Moore)
+
+Next permutation
+
+Minimum number of jumps to reach end
+
+Median of two sorted arrays
+
+Maximum profit from stock prices
+
+Find duplicate in array of n+1 integers
+
+Missing and repeating number
+
+Longest consecutive subsequence
+
+Rearrange positive and negative numbers
+
+Merge overlapping intervals
+
+Count inversions in array
+
+Smallest subarray with sum > target
+
+Maximum product of three numbers
+
+Product of array except self
+
+Find all leaders in array
+
+Smallest missing positive integer
+
+Find all triplets with zero sum
+
+Rearrange array alternatively (+, -, +, -)
+
+Rearrange array in max–min form
+
+🧩 Level 7: Matrix (2D Array)
+
+Print matrix in spiral order
+
+Transpose of a matrix
+
+Rotate matrix 90° clockwise
+
+Search element in sorted matrix
+
+Set matrix zeroes
+
+Diagonal sum of matrix
+
+Print boundary elements of matrix
+
+Find saddle point
+
+Matrix multiplication
+
+Maximum rectangle of 1s
+
+💥 Level 8: STL and Real-time Scenarios
+
+Use std::array with iterators
+
+Sort using std::sort()
+
+Find min/max using std::min_element()
+
+Find unique elements using std::set
+
+Dynamic array using std::vector
+
+Find kth smallest element (using heap)
+
+Remove duplicates using std::unique()
+
+Reverse array using std::reverse()
+
+Binary search using std::binary_search()
+
+Use std::accumulate() to sum elements
+
+⚙️ Level 9: Optimization & Tricky
+
+Find missing number using XOR
+
+Find duplicate using Floyd’s cycle detection
+
+Minimum swaps to sort array
+
+Maximize array sum after K negations
+
+Rearrange array so that arr[i] = i
+
+🏁 Summary Table
+Level	Topic Focus	# Questions
+1	Basics	10
+2	Intermediate	15
+3	Subarrays	10
+4	Sliding Window	10
+5	Sorting/Searching	10
+6	Advanced	20
+7	Matrix	10
+8	STL	10
+9	Optimization	5
