@@ -5,6 +5,9 @@
 using namespace std;
 
 void PrintArray(int arr[], int n){
+    // cout<<"starting : "<<arr<<endl;
+    // cout<<"start : "<<*(arr)<<endl;
+    // cout<<"s : "<<arr[0]<<endl;
     int largest = arr[0];
     for(int i=0; i<n; i++) {
         if(arr[i] >= largest) {

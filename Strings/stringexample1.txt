@@ -1,0 +1,30 @@
+// Difference betweeen c string and c++string
+
+1.cstring:-
+----------
+C-style string based on character Array and terminated with Null character '\0'
+Stored in stack (if local) or static memory if global.
+===========================================================
+| Function              | Description                     |
+| --------------------- | ------------------------------- |
+| `strlen(str)`         | Returns length (excluding '\0') |
+| `strcpy(dest, src)`   | Copies string                   |
+| `strcat(dest, src)`   | Concatenates                    |
+| `strcmp(str1, str2)`  | Compares                        |
+| `strchr(str, ch)`     | Finds character                 |
+| `strstr(str, substr)` | Finds substring                 |
+===========================================================
+
+2.C++ String:-
+==============
+Introduced in <string> header, part of the STL.
+check common Operation in c++string in string.txt document
+
+| Feature           | C-Style (`char[]`)    | C++ `std::string`         |
+| ----------------- | --------------------- | ------------------------- |
+| Memory Management | Manual                | Automatic                 |
+| Safety            | Unsafe                | Safe                      |
+| Operations        | `<cstring>` functions | Built-in member functions |
+| Dynamic resizing  | ❌ No                 |✅ Yes                    |
+| Comparison        | `strcmp()`            | `==`, `<`, etc.           |
+| Exception Safety  | No                    | Yes                       |

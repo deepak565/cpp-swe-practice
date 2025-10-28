@@ -37,7 +37,7 @@ Arrays are const and can't be resizable at run -time if need to resize need to u
 int arr[5]; ->static array memory in stack
 
 2.dynamic array(Size decided at runtime using heap memory.)
-int *arr = new arr[5]; ->dynamic array memory in heap
+int *arr = new int[5]; ->dynamic array memory in heap
 
 3.Multidimensional Array(Used for matrices, grids, etc.)
 int arr[3][3] = {{1,2,3},{4,5,6},{7,8,9}};
@@ -45,7 +45,7 @@ cout << arr[1][2]; // 6
 
 4.jaggered Array(Array of pointers, where each row has a different length.)
 int *arr[3];
-arr = new int[3];
+arr0 = new int[3];
 arr1 = new int[4];
 arr2 = new int[5];
 
