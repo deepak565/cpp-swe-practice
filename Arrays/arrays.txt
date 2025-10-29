@@ -89,18 +89,12 @@ Questions:-
 1.Find the largest element in an array
 2.Find the smallest element in an array
 3.Find the sum of all elements
-
-Reverse an array
-
-Find average of elements
-
-Search an element linearly
-
-Count even and odd numbers
-
-Copy one array to another
-
-Find the second largest element
+4.Reverse an array
+5.Find average of elements
+6.Search an element linearly
+7.Count even and odd numbers
+8.Copy one array to another
+9.Find the second largest element
 
 Check if array is sorted
 

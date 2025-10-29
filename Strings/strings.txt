@@ -182,8 +182,7 @@ Below is a categorized set:
 ========================
 1.Difference between C and C++ strings
 2.Find length of string manually
-
-Reverse a string
+3.Reverse a string
 
 Check palindrome
 

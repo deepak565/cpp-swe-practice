@@ -7,9 +7,9 @@ using namespace std;
 int main() {
     string s = "Hello World!";
     int count = 0;
-    for(char c : s) {
-        count++;
-    }
+    // for(char c : s) {
+    //     count++;
+    // }
     cout<<"Length of string "<<count<<endl;
 
     char ch[] = "Deepak\0";
