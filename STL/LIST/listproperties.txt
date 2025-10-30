@@ -1,0 +1,44 @@
+🛠️ Member Functions (Grouped by Type)
+=====================================
+✅ 1. Modifiers
+Function	Description
+push_back(value)	Adds element at the end
+push_front(value)	Adds element at the beginning
+pop_back()	Removes last element
+pop_front()	Removes first element
+insert(pos, value)	Inserts before pos
+erase(pos)	Removes element at pos
+clear()	Removes all elements
+resize(n)	Resizes list to contain n elements
+assign(count, value)	Assigns new contents
+swap(other)	Swaps contents with another list
+
+✅ 2. Element Access
+Function	Description
+front()	Access first element
+back()	Access last element
+
+✅ 3. Capacity
+Function	Description
+empty()	Checks if list is empty
+size()	Returns number of elements
+max_size()	Returns the maximum possible size
+
+✅ 4. Operations
+Function	Description
+sort()	Sorts the list
+reverse()	Reverses the list
+unique()	Removes consecutive duplicates
+merge(other)	Merges two sorted lists
+splice(pos, other)	Transfers elements from other to this list
+remove(value)	Removes all elements with the specified value
+remove_if(pred)	Removes elements satisfying predicate
+
+✅ 5. Iterators
+Function	Description
+begin()	Iterator to first element
+end()	Iterator to after last element
+rbegin()	Reverse iterator to last element
+rend()	Reverse iterator to before first element
+cbegin()	Const iterator to first
+cend()	Const iterator to after last
