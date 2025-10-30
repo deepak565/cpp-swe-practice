@@ -1,0 +1,385 @@
+======================Strings===================================================
+String:-
+=======
+String is a sequence of characters stored in a memory
+
+C++ provide 2 main ways of handling string
+1.C-style string ->Based on character Array
+2.C++ std::string(from <string>) ->object-oriented, safer and most powerfull
+
+2.1 C-style Strings:-
+=====================
+Defined using char arrays and terminated with a null character '\0'.
+
+char name[] = "Deepak";
+
+equivalent to
+
+char name[] = {'D', 'e', 'e', 'p', 'a', 'k', '\0'};
+Stored in stack (if local) or static memory if global.
+===========================================================
+| Function              | Description                     |
+| --------------------- | ------------------------------- |
+| `strlen(str)`         | Returns length (excluding '\0') |
+| `strcpy(dest, src)`   | Copies string                   |
+| `strcat(dest, src)`   | Concatenates                    |
+| `strcmp(str1, str2)`  | Compares                        |
+| `strchr(str, ch)`     | Finds character                 |
+| `strstr(str, substr)` | Finds substring                 |
+===========================================================
+
+=================================================================================
+2.2 std::string (C++ Style):-
+=============================
+Introduced in <string> header, part of the STL.
+
+#include <string>
+#include <iostream>
+using namespace std;
+
+int main() {
+    string name = "Manikanta Deepak";
+    cout << name << endl;
+}
+
+Advantages:
+✅ Dynamic resizing
+✅ Operator overloading (+, ==, [], etc.)
+✅ Rich API
+✅ Safe and convenient
+
+3. Common Operations on std::string
+📍 Creation and Initialization
+string s1 = "Hello";
+string s2("World");
+string s3 = s1 + " " + s2;
+
+📍 Length and Capacity
+cout << s1.length();
+cout << s1.size();
+cout << s1.capacity();
+
+📍 Accessing Characters
+cout << s1[0];
+cout << s1.at(1);
+
+📍 Adding / Removing Characters
+s1.push_back('!');
+s1.pop_back();
+
+📍 Substring
+string sub = s1.substr(0, 3); // "Hel"
+
+📍 Searching
+size_t pos = s1.find("lo");
+if (pos != string::npos) cout << "Found at " << pos;
+	
+📍 Replace
+s1.replace(0, 2, "Hi"); // Replace first 2 chars with "Hi"
+
+📍 Insert / Erase
+s1.insert(3, "World");
+s1.erase(3, 2);
+
+📍 Compare
+if (s1 == s2) ...
+if (s1.compare(s2) == 0) ...
+
+📍 Convert Between String and Numbers
+int n = stoi("123");
+string s = to_string(456);
+
+📍 Iterate Over String
+for (char c : s1) cout << c << " ";
+
+🧮 4. Memory Model of std::string
+
+Internally uses dynamic memory allocation (heap).
+
+Before C++11 → Copy-on-write (inefficient)
+After C++11 → Short String Optimization (SSO)
+
+✅ SSO: Small strings (usually ≤15 chars) are stored inside the object itself (stack) to avoid heap allocation.
+
+| Feature           | C-Style (`char[]`)    | C++ `std::string`         |
+| ----------------- | --------------------- | ------------------------- |
+| Memory Management | Manual                | Automatic                 |
+| Safety            | Unsafe                | Safe                      |
+| Operations        | `<cstring>` functions | Built-in member functions |
+| Dynamic resizing  | ❌ No                  | ✅ Yes                  |
+| Comparison        | `strcmp()`            | `==`, `<`, etc.           |
+| Exception Safety  | No                    | Yes                       |
+
+
+⚡ 6. Advanced String Topics
+🧩 6.1 String Views (std::string_view)
+
+Introduced in C++17 — lightweight read-only view of string data (no copy).
+
+string_view sv = "Hello World";
+cout << sv.substr(0, 5); // prints Hello
+
+
+→ Faster, used in performance-critical code.
+
+🧩 6.2 Raw String Literals
+
+Avoids escaping special characters:
+
+string path = R"(C:\Users\Deepak\Desktop\)";
+
+🧩 6.3 Unicode Strings
+
+C++ supports:
+
+std::u16string — UTF-16
+
+std::u32string — UTF-32
+
+std::wstring — wide characters
+
+🧩 6.4 String Streams (<sstream>)
+
+Used to treat strings like input/output streams.
+
+#include <sstream>
+stringstream ss;
+ss << "Deepak " << 25;
+string result = ss.str();
+
+🧩 6.5 Mutable vs Immutable Behavior
+
+Unlike Python, C++ strings are mutable.
+You can modify characters directly:
+
+string s = "Hello";
+s[0] = 'Y';  // "Yello"
+
+
+🧮 7. Common String Algorithms (Interview Focus)
+
+✅ Reverse a string
+✅ Check palindrome
+✅ Count vowels/consonants
+✅ Remove spaces
+✅ Find frequency of each character
+✅ Remove duplicates
+✅ Longest substring without repeating characters
+✅ Longest palindromic substring
+✅ String compression
+✅ Anagram check
+✅ Rotate string / cyclic shift
+✅ Implement strstr() / KMP algorithm
+✅ Convert string to integer (custom atoi())
+✅ Convert case (upper/lower)
+✅ Find first non-repeating character
+
+💡 Top 100 Interview Questions on Strings
+=========================================
+Below is a categorized set:
+--------------------------
+🟢 Beginner (1–2 years)
+========================
+1.Difference between C and C++ strings
+2.Find length of string manually
+3.Reverse a string
+
+Check palindrome
+
+Count vowels
+
+Convert to uppercase/lowercase
+
+Compare two strings
+
+Concatenate without using strcat()
+
+Copy string manually
+
+Find substring
+
+Count frequency of a character
+
+Remove spaces
+
+Replace all spaces with underscores
+
+Find ASCII value of each character
+
+Count digits in a string
+
+Check if string is an anagram
+
+Remove vowels
+
+Sort characters alphabetically
+
+Find the most frequent character
+
+Count uppercase and lowercase separately
+
+🟡 Intermediate (2–4 years)
+
+Remove duplicates
+
+Find first non-repeating character
+
+Implement your own strcmp()
+
+Count words in a sentence
+
+Find longest word
+
+Check rotation of strings
+
+Find if two strings are permutations
+
+Implement your own strstr()
+
+Count occurrences of substring
+
+Remove specific character
+
+Split string by space
+
+Find second most frequent character
+
+Check if string contains only digits
+
+Implement custom atoi()
+
+Convert number to string manually
+
+Find lexicographically smallest/largest substring
+
+Replace substring manually
+
+Reverse each word in a sentence
+
+Convert camelCase to snake_case
+
+Count special characters
+
+🔴 Advanced (4–5+ years)
+
+Longest substring without repeating characters
+
+Longest palindromic substring
+
+Minimum window substring
+
+String compression (e.g. aabbb → a2b3)
+
+Validate parentheses using string
+
+KMP string matching algorithm
+
+Rabin-Karp algorithm
+
+Z-algorithm for pattern matching
+
+Boyer-Moore algorithm
+
+Trie implementation for prefix search
+
+Word break problem
+
+Edit distance (Levenshtein distance)
+
+Longest common prefix among strings
+
+Longest common subsequence
+
+Check if two strings are isomorphic
+
+Find all permutations of a string
+
+Check scrambled string
+
+Minimum insertions to make palindrome
+
+Group anagrams
+
+Remove invalid parentheses
+
+🧠 Expert-Level Topics
+
+Implement regex-like pattern match
+
+Manacher’s algorithm (for palindrome)
+
+Knuth–Morris–Pratt preprocessing explanation
+
+Find duplicate substrings of length k
+
+Encode and decode strings (LeetCode 271)
+
+Word ladder transformation
+
+Find smallest substring with all distinct characters
+
+Implement custom tokenizer
+
+Use std::string_view for performance tuning
+
+Understand short string optimization (SSO)
+
+String hashing (Rabin-Karp rolling hash)
+
+Implement LRU cache with string keys
+
+Find common prefix in array of strings
+
+Check interleaving of two strings
+
+Implement strtok()
+
+Wildcard pattern matching
+
+Minimum number of swaps to make strings equal
+
+Reorganize string (no adjacent duplicates)
+
+Remove adjacent duplicates repeatedly
+
+Find kth non-repeating character
+
+Implement string multiplication (for big integers)
+
+Custom immutable string class design
+
+Convert UTF-8 → UTF-16 → UTF-32
+
+Memory optimization using string_view
+
+Thread-safety issues in shared strings
+
+Handling binary data in strings
+
+Secure string handling (clearing memory)
+
+Performance difference between append vs operator+
+
+String interning concept
+
+Profiling string copy vs move
+
+Implement a substring search using tries
+
+Understanding std::basic_string template
+
+Move semantics and RVO in string operations
+
+std::wstring vs std::string
+
+Use of std::ostringstream and istringstream
+
+Detect cyclic shifts efficiently
+
+Convert infix → postfix using strings
+
+Reverse words in-place using two-pointer
+
+Implement strstr using naive + optimized methods
+
+Design a text editor undo/redo using string states

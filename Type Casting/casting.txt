@@ -1,0 +1,59 @@
+=========================Type casting===========================
+Casting:-
+	Converts a value into another data Type (or)
+	Converting a datatype into another
+	
+They are Two Main categories
+1.Implicit casting
+2.Explicit casting
+
+1.Implicit casting
+------------------
+Automatic Conversion Done by Compiler
+
+Example:-
+--------
+int a = 10;
+double b = a;  // implicit conversion from int → double  safe conversion
+
+double x = 9.78;
+int y = x;  // truncates to 9  Not safe conversion may lead to warning as loss of precisions
+
+
+Hierarchy (for numeric promotion)
+---------------------------------
+bool → char → short → int → long → float → double → long double
+
+Drawbacks:
+---------
+Possible data loss if converting from larger → smaller type
+e.g. double → int (fraction part lost)
+
+Implicit conversion may lead to unexpected results in arithmetic
+
+
+
+2.Explicit Conversion
+---------------------
+When we force the conversion
+
+C++ provide Two Main Types
+1.Old c-style casting
+2.C++ cast Operators(Modern C++ Style)
+
+
+1.Old c-style casting
+---------------------
+
+int a = 65;
+char ch = (char)a;  // C-style cast
+
+Dangerous — can do anything, bypassing type safety.
+Hence, C++ introduced safer alternatives: the four cast operators.
+
+2.C++ cast Operators(Modern C++ Style)
+--------------------------------------
+
+Prepare notes from chatgpt, QtQml Course, PDF for all 4 types of casting
+
+
