@@ -1,0 +1,125 @@
+When Software systems grew large (thousands and millions of lines) developers realized:
+1.They were solving the same problem repeatedly(like object creation, dependency management and event handling etc...)
+2.Systems were becoming hard to maintain, scale or extend
+3.Teams need a common language to describe solutions
+
+So Two disciplines evolved:
+| Concept             | Focus                          | Level                   | Goal                                                     |
+| ------------------- | ------------------------------ | ----------------------- | -------------------------------------------------------- |
+| **Design Patterns** | Code-level design solutions    | Micro / Component level | Reuse proven code structures to solve recurring problems |
+| **System Design**   | High-level architecture design | Macro / System level    | Design scalable, reliable, efficient systems             |
+
+
+1.Design Patterns:- Blue prints for Code design
+
+🔹 What Are They?
+
+Design Patterns are reusable solutions to common software design problems that arise during object-oriented software development.
+
+They are not code, but templates or best practices that guide how you structure and connect your classes and objects.
+
+🔹 History
+
+Design Patterns were formally introduced by Erich Gamma, Richard Helm, Ralph Johnson, and John Vlissides (the “Gang of Four”) in their famous 1994 book:
+
+📘 “Design Patterns: Elements of Reusable Object-Oriented Software”
+
+This book cataloged 23 patterns grouped into 3 categories.
+
+| Category                | Problem It Solves                     | Examples                                                                                                  
+| **Creational Patterns** | Object creation mechanisms            | Singleton, Factory, Abstract Factory, Builder, Prototype                                                  |
+| **Structural Patterns** | Class and object composition          | Adapter, Bridge, Composite, Decorator, Facade, Flyweight, Proxy                                           |
+| **Behavioral Patterns** | Object interaction and responsibility | Observer, Strategy, Command, State, Iterator, Mediator, Memento, Chain of Responsibility, Template Method |
+
+
+🔹 When to Use Design Patterns
+
+Use them when you:
+
+Face recurring object-oriented design problems.
+
+Want loose coupling, maintainability, and testability.
+
+Need to follow SOLID principles.
+
+🔹 Key Benefits
+
+✅ Reusability
+✅ Maintainability
+✅ Scalability
+✅ Common communication language among developers
+✅ Fewer bugs, clearer architecture
+
+🔹 Common Misunderstandings
+
+❌ Patterns are not libraries or ready-to-use code.
+
+❌ You should not overuse them (that causes complexity).
+
+✅ Use patterns only when they fit the problem naturally.
+
+2.SYSTEM DESIGN — “Blueprints for Software Architecture”
+
+What It Is
+
+System design focuses on how to design large-scale software systems that can handle:
+
+Scalability (millions of users)
+
+Reliability (no downtime)
+
+Performance (fast response)
+
+Maintainability
+
+🧠 Think of it as city planning: how all buildings (modules/services) connect and communicate efficiently.
+
+🔹 Types of System Design
+Type	Description
+High-Level Design (HLD)	Defines system architecture — components, data flow, APIs, load balancing, caching, etc.
+Low-Level Design (LLD)	Details class structure, methods, data models, relationships, etc. (Design patterns are part of this)
+
+🔹 Components of a System Design
+Component	Purpose
+Clients	Users interacting with system (browser, mobile)
+Load Balancers	Distribute traffic to servers
+Application Servers	Run backend logic
+Databases	Store persistent data
+Cache	Speed up data retrieval (Redis, Memcached)
+Message Queues	Handle asynchronous processing (Kafka, RabbitMQ)
+CDN	Deliver static content faster
+Monitoring & Logging	Observe health and performance
+
+| Aspect   | Design Patterns              | System Design                         |
+| -------- | ---------------------------- | ------------------------------------- |
+| Level    | Code-level                   | Architecture-level                    |
+| Scope    | Class/object structure       | Complete system                       |
+| Focus    | Reusable code patterns       | Scalability, performance, reliability |
+| Examples | Singleton, Factory, Observer | Load Balancing, Caching, Sharding     |
+| Used By  | Developers                   | Architects, senior engineers          |
+
+
+1️⃣ What Are SOLID Principles?
+
+| Letter | Principle                                 | Goal                                                              |
+| ------ | ----------------------------------------- | ----------------------------------------------------------------- |
+| **S**  | **Single Responsibility Principle (SRP)** | A class should have one, and only one, reason to change.          |
+| **O**  | **Open/Closed Principle (OCP)**           | Classes should be open for extension but closed for modification. |
+| **L**  | **Liskov Substitution Principle (LSP)**   | Subclasses should be substitutable for their base classes.        |
+| **I**  | **Interface Segregation Principle (ISP)** | No client should be forced to depend on methods it does not use.  |
+| **D**  | **Dependency Inversion Principle (DIP)**  | Depend on abstractions, not on concrete implementations.          |
+
+
+
+| Aspect              | **SOLID Principles**                                            | **Design Patterns**                                      |
+| ------------------- | --------------------------------------------------------------- | -------------------------------------------------------- |
+| **Definition**      | Guidelines for writing clean, maintainable object-oriented code | Reusable solutions for common design problems            |
+| **Level**           | Code design principles                                          | Code architecture templates                              |
+| **Focus**           | How to design good classes, functions, and dependencies         | How classes and objects collaborate                      |
+| **Goal**            | Maintainability, flexibility, readability                       | Reusability, scalability, extensibility                  |
+| **Examples**        | SRP, OCP, LSP, ISP, DIP                                         | Singleton, Factory, Observer, Strategy                   |
+| **When to Apply**   | When writing or refactoring code                                | When solving a specific structural or behavioral problem |
+| **Type of Concept** | Theoretical guideline (philosophy)                              | Practical implementation (blueprint)                     |
+
+
+
