@@ -1,0 +1,233 @@
+// TOPIC: Introduction to thread in C++ (C++11)
+
+// QUESTIONS
+// 1. What do you understand by thread and give one example in C++?
+
+// ANSWER
+// 0. In every application there is a default thread which is main(), inside this we create other threads.
+// 1. A thread is also known as lightweight process. Idea is achieve parallelism by dividing a process into multiple threads.
+//    For example:
+//    (a) The browser has multiple tabs that can be different threads.
+//    (b) MS Word must be using multiple threads, one thread to format the text, another thread to process inputs (spell checker).
+//    (c) Visual Studio code editor would be using threading for auto completing the code. (IntelliSense)
+
+// WAYS TO CREATE THREADS IN C++11
+// 1. Function Pointers
+// 2. Lambda Functions
+// 3. Functors
+// 4. Member Functions
+// 5. Static Member functions
+
+Some time thread creation takes more time than normal fucntion calling (usually small task) beacuse:
+-------------------------------------------------------------------------------------------
+1. Thread creation has overhead
+
+When you call:
+
+thread t1(findOdd, start, end);
+thread t2(findEven, start, end);
+
+
+The OS must:
+
+Create a new stack for each thread
+
+Register it with the scheduler
+
+Perform context switching
+
+Synchronize memory access
+
+➡️ That setup and teardown cost is often more expensive than the small computation you’re doing.
+
+So, if your workload is light or CPU-bound, threads can actually slow things down.
+
+⚡ 2. Both threads fight for the same CPU core(s)
+
+If you run this on a single-core CPU, or your system has limited cores (e.g., a laptop doing other tasks),
+then both threads are competing for the same CPU time slice — not running truly parallel.
+
+Even on multi-core systems, the OS scheduling and cache contention can reduce performance.
+
+🧮 3. Shared variables cause memory contention
+
+You’re updating:
+
+EvenSum += i;
+OddSum += i;
+
+
+These are global shared variables.
+
+➡️ Even though they’re modified by different threads (no data race here), the CPU’s cache still gets flushed or invalidated frequently because of shared memory locations.
+This hurts performance.
+
+🧠 4. When multithreading helps
+
+You’ll see speedup when:
+
+The work is very heavy (e.g., 10^9+ iterations)
+
+The threads do independent work on separate memory
+
+The CPU has multiple cores
+
+You don’t create/join threads repeatedly in a loop
+
+Or when threads perform I/O-bound tasks (e.g., reading files, network calls)
+--------------------------------------------------------------------------------------------
+commonly used types of threads in C++ and system programming:
+
+👉 pthread
+👉 std::thread
+👉 Worker thread
+
+
+🧩 1️⃣ POSIX Threads (pthread) — Low-level, C-style
+
+📚 Header: <pthread.h>
+📍 Used in: Linux / UNIX systems
+💡 Language binding: C API (but usable in C++)
+
+✅ Concept:
+
+pthread stands for POSIX threads.
+
+It’s a low-level threading API that gives you direct control over how threads are created, scheduled, and managed by the OS.
+
+It’s very powerful but verbose — you must handle everything manually (creation, synchronization, etc.).
+
+✨ Example:
+#include <pthread.h>
+#include <iostream>
+using namespace std;
+
+void* worker(void* arg) {
+    cout << "Hello from pthread!\n";
+    return nullptr;
+}
+
+int main() {
+    pthread_t t;
+    pthread_create(&t, nullptr, worker, nullptr);
+    pthread_join(t, nullptr);
+    cout << "Main thread done\n";
+}
+
+
+🧠 When to use:
+In embedded systems, Linux device code, or legacy projects.
+When you need fine-grained control and maximum performance
+⚠️ Downside: Not type-safe, not exception-safe, and harder to maintain.
+
+
+2️⃣ C++ Standard Threads (std::thread) — Modern, high-level
+
+📚 Header: <thread>
+📍 Used in: Any modern C++11 and above
+💡 Language binding: C++ Standard Library
+
+✅ Concept:
+
+std::thread is a C++11 wrapper around system threads (which are internally POSIX threads on Linux and Win32 threads on Windows).
+
+It is object-oriented, type-safe, and integrates well with C++ exceptions, RAII, and STL.
+
+✨ Example:
+#include <iostream>
+#include <thread>
+using namespace std;
+
+void task() {
+    cout << "Hello from std::thread!\n";
+}
+
+int main() {
+    thread t(task);
+    t.join();
+    cout << "Main thread done\n";
+}
+
+
+🧠 When to use:
+
+In modern C++ applications, desktop apps, cross-platform software, or projects following best practices.
+
+✅ Advantages:
+
+Portable (works on Windows, Linux, Mac)
+
+Type-safe
+
+Works with std::mutex, std::condition_variable, etc.
+
+⚠️ Downside: Slightly higher abstraction → less low-level control compared to pthreads.
+
+
+3️⃣ Worker Thread — Design/Usage Concept
+
+📚 Not a specific API or class — it’s a conceptual type of thread.
+
+✅ Concept:
+A worker thread is just a background thread that performs a specific task while the main thread continues running.
+You can implement a worker thread using either pthread or std::thread.
+
+✨ Example with std::thread:
+#include <iostream>
+#include <thread>
+#include <chrono>
+using namespace std;
+
+void workerTask() {
+    for (int i = 0; i < 5; ++i) {
+        cout << "Worker thread running...\n";
+        this_thread::sleep_for(chrono::seconds(1));
+    }
+}
+
+int main() {
+    thread worker(workerTask);   // Worker thread
+    cout << "Main thread doing other work...\n";
+
+    worker.join();  // Wait for worker to finish
+    cout << "All done!\n";
+}
+
+
+🧠 When to use:
+
+When your app needs to do something in the background:
+
+Log writing
+
+File copying
+
+Network communication
+
+Background computations
+
+⚙️ In GUI frameworks like Qt, a QThread often acts as a worker thread for long tasks so the UI stays responsive.
+
+| Feature     | **pthreads**           | **std::thread**       | **Worker Thread**                   |
+| ----------- | ---------------------- | --------------------- | ----------------------------------- |
+| Type        | API / Library          | C++ Class             | Concept / Usage Pattern             |
+| Level       | Low-level              | High-level            | Design-level                        |
+| Header      | `<pthread.h>`          | `<thread>`            | (no header, conceptual)             |
+| OS Support  | UNIX/Linux             | Cross-platform        | Any                                 |
+| Language    | C API                  | C++11+                | Any (C/C++/Qt)                      |
+| Control     | Full (manual)          | Simplified            | Defined by logic                    |
+| Typical Use | Embedded, system-level | Modern applications   | Background or async tasks           |
+| Example     | `pthread_create()`     | `std::thread t(func)` | Any thread doing work in background |
+
+| Real-world analogy | Description                                                    |
+| ------------------ | -------------------------------------------------------------- |
+| **pthreads**       | You build a car engine by hand — total control but complex.    |
+| **std::thread**    | You use a ready-made car — safe, convenient, still powerful.   |
+| **Worker thread**  | You hire someone to do a background job — concept, not a tool. |
+
+
+
+
+
+
+
