@@ -31,11 +31,8 @@ thread t2(findEven, start, end);
 The OS must:
 
 Create a new stack for each thread
-
 Register it with the scheduler
-
 Perform context switching
-
 Synchronize memory access
 
 ➡️ That setup and teardown cost is often more expensive than the small computation you’re doing.
@@ -65,13 +62,10 @@ This hurts performance.
 🧠 4. When multithreading helps
 
 You’ll see speedup when:
-
+-----------------------
 The work is very heavy (e.g., 10^9+ iterations)
-
 The threads do independent work on separate memory
-
 The CPU has multiple cores
-
 You don’t create/join threads repeatedly in a loop
 
 Or when threads perform I/O-bound tasks (e.g., reading files, network calls)
@@ -94,7 +88,6 @@ commonly used types of threads in C++ and system programming:
 pthread stands for POSIX threads.
 
 It’s a low-level threading API that gives you direct control over how threads are created, scheduled, and managed by the OS.
-
 It’s very powerful but verbose — you must handle everything manually (creation, synchronization, etc.).
 
 ✨ Example:
@@ -130,7 +123,6 @@ When you need fine-grained control and maximum performance
 ✅ Concept:
 
 std::thread is a C++11 wrapper around system threads (which are internally POSIX threads on Linux and Win32 threads on Windows).
-
 It is object-oriented, type-safe, and integrates well with C++ exceptions, RAII, and STL.
 
 ✨ Example:
