@@ -106,7 +106,7 @@ After C++11 → Short String Optimization (SSO)
 | Memory Management | Manual                | Automatic                 |
 | Safety            | Unsafe                | Safe                      |
 | Operations        | `<cstring>` functions | Built-in member functions |
-| Dynamic resizing  | ❌ No                  | ✅ Yes                  |
+| Dynamic resizing  | ❌ No                 | ✅ Yes                   |
 | Comparison        | `strcmp()`            | `==`, `<`, etc.           |
 | Exception Safety  | No                    | Yes                       |
 

@@ -1,0 +1,57 @@
+C++ lambdas (introduced in C++11, enhanced in C++14/17/20) are anonymous function objects
+created inline. They allow writing functions locally, capturing surrounding variables,
+and passing behavior to algorithms.
+
+A lambda has this form:
+[capture] (parameters) mutable noexcept/throw() -> return_type {
+    body
+};
+
+| Capture           | Meaning                           |
+| ----------------- | --------------------------------- |
+| `[]`              | Capture nothing                   |
+| `[&]`             | Capture everything by reference   |
+| `[=]`             | Capture everything by value       |
+| `[x]`             | Capture variable `x` by value     |
+| `[&x]`            | Capture variable `x` by reference |
+| `[x, &y]`         | Mix of captures                   |
+| `[this]`          | Capture the current object        |
+| `[*this]` (C++17) | Capture a copy of the object      |
+
+2. Lambda as a Function Object
+
+The compiler creates an unnamed class & overloads operator().
+Example equivalent:
+auto f = [](){};
+Becomes something like:
+struct __lambda_1 {
+    void operator()() const {}
+};
+
+
+3. Mutable Lambda
+Allows modifying captured values by value inside lambda.
+int x = 10;
+auto f = [x]() mutable {
+    x++;
+};
+
+
+4.Generic Lambdas (C++14+)
+Allow auto in parameters.
+auto add = [](auto a, auto b) { return a + b; };
+
+5.Returning Lambdas / Storing Lambdas
+Use std::function or auto.
+std::function<int(int)> f = [](int x){ return x*x; };
+
+6. Lambdas in Standard Algorithms
+std::sort(v.begin(), v.end(), [](int a, int b){return a>b;});
+
+Lambdas & Move Captures (C++14+)
+auto ptr = std::make_unique<int>(10);
+auto f = [p = std::move(ptr)]() { return *p; };
+
+
+Lambda in Multi-Threading
+Common usage with std::thread.

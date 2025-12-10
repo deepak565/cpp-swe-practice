@@ -1,6 +1,8 @@
 // Problem 1: Shape Inheritance with Smart Pointers
 // Problem:
-// Design a class hierarchy to represent different shapes (Circle, Rectangle, Triangle) using inheritance. Each shape should have a method area() to calculate its area. You need to manage these shapes using smart pointers (like std::unique_ptr).
+// Design a class hierarchy to represent different shapes (Circle, Rectangle, Triangle) using inheritance.
+// Each shape should have a method area() to calculate its area.
+// You need to manage these shapes using smart pointers (like std::unique_ptr).
 
 // Requirements:
 

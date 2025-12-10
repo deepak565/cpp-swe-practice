@@ -15,7 +15,7 @@ int arr[5] = {1,2,3,4,5};
 2.Array Declaration and initliazation
 -------------------------------------
 
-int arr[5];  //uninitlialized
+int arr[5];  //  uninitlialized
 int arr[] = {1,2,3,4,5}; // size auto detected
 int arr[5] = {1,2};  // remaining values with 0
 
@@ -95,8 +95,7 @@ Questions:-
 7.Count even and odd numbers
 8.Copy one array to another
 9.Find the second largest element
-
-Check if array is sorted
+10.Check if array is sorted
 
 🟡 Level 2: Intermediate
 

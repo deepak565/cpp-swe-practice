@@ -1,0 +1,44 @@
+// Topic: introduction to smart pointers in c++
+
+//Notes:
+//1.smart pointer is a class which wraps a rawpointer to manage the life time of an object
+//2.The most fundemental job of smart pointer is to remove the chance of memory leaks
+//3.it makes sure object is deleted if it is no referece anymore
+//4.smart pointers are defined in <memory> header file
+//5.there are three types of smart pointers in c++ std::unique_ptr , std::shared_ptr , std::weak_ptr
+//6.std::unique_ptr : it is used when we want single owner ship of the object
+//7.std::shared_ptr : it is used when we want multiple owner ship of the object
+//8.std::weak_ptr : it is used to break the cyclic references between two shared_ptrs
+//9.smart pointers overload the dereference operator(*) and arrow operator(->) to access the underlying raw pointer
+//10.smart pointers provide automatic memory management by deallocating the memory when it is no longer needed
+
+// Types:
+// 1. std::unique_ptr
+// Allows only one owership of the object
+//2. std::shared_ptr
+// Allows multiple ownership of the object (reference count is maintained)
+//3. std::weak_ptr
+//it is special type of smart pointer that does not count the reference
+
+#include <iostream>
+using namespace std;
+
+class MyInt {
+ private:
+    int* data;
+ public:
+    explicit MyInt(int* ptr) : data(ptr) {}
+    ~MyInt() {
+        delete data;
+    }
+    int& operator*() {
+        return *data;
+    }
+};
+
+int main() {
+    int *p = new int(10);
+    MyInt myint = MyInt(p);
+    cout<<"value :"<<*myint<<endl;
+    return 0;
+}
