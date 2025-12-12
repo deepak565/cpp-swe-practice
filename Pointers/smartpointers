@@ -42,3 +42,12 @@ int main() {
     cout<<"value :"<<*myint<<endl;
     return 0;
 }
+
+//  Important:
+//1. About smart pointers
+//2. Different types of smart pointers and their use cases
+//3. How smart pointers manage memory automatically
+//4. Overloading operators in smart pointers
+//5. Avoiding memory leaks with smart pointers
+//6. How smart pointers got created in c++ class implementation
+//7. create a custom smart pointer  
