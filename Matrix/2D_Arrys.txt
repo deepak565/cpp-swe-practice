@@ -1,0 +1,272 @@
+# 🔹 BASIC–INTERMEDIATE (Must-know, expected)
+
+### 1️⃣ Matrix traversal
+
+**Problem**
+
+> Print a 2D matrix row-wise and column-wise.
+
+**Tests**
+
+* Indexing
+* Loop order
+* Memory layout understanding
+
+---
+
+### 2️⃣ Search an element in a matrix
+
+**Problem**
+
+> Given a matrix, check if a value exists.
+
+**Follow-up**
+
+* Return row & column
+* Count occurrences
+
+---
+
+### 3️⃣ Row-wise maximum and minimum
+
+**Problem**
+
+> Find the maximum element in each row.
+
+**Follow-up**
+
+> Same for columns.
+
+**Tests**
+
+* Loop nesting logic
+* Initialization correctness
+
+---
+
+### 4️⃣ Diagonal sum
+
+**Problem**
+
+> Find primary and secondary diagonal sum of a square matrix.
+
+**Follow-up**
+
+> Validate if matrix is square.
+
+---
+
+### 5️⃣ Matrix addition & subtraction
+
+**Problem**
+
+> Add two matrices.
+
+**Follow-up**
+
+> Validate dimensions.
+
+---
+
+### 6️⃣ Matrix transpose
+
+**Problem**
+
+> Transpose a matrix.
+
+**Follow-up**
+
+* In-place transpose for square matrix
+* New matrix for rectangular
+
+---
+
+# 🔹 INTERMEDIATE–ADVANCED (Common for 5+ years)
+
+### 7️⃣ Spiral traversal
+
+**Problem**
+
+> Print a matrix in spiral order.
+
+**Tests**
+
+* Boundary control
+* Edge cases
+
+---
+
+### 8️⃣ Rotate matrix by 90°
+
+**Problem**
+
+> Rotate a matrix clockwise.
+
+**Follow-up**
+
+* In-place rotation
+* Counter-clockwise
+
+---
+
+### 9️⃣ Search in sorted matrix
+
+**Problem**
+
+> Rows and columns are sorted. Find an element.
+
+**Expected**
+
+* O(rows + cols) solution
+
+---
+
+### 🔟 Set matrix zeroes
+
+**Problem**
+
+> If any element is zero, set its entire row and column to zero.
+
+**Follow-up**
+
+* Do it in O(1) extra space
+
+---
+
+### 1️⃣1️⃣ Largest row / column sum
+
+**Problem**
+
+> Find the row with maximum sum.
+
+---
+
+### 1️⃣2️⃣ Boundary elements
+
+**Problem**
+
+> Print only boundary elements of matrix.
+
+---
+
+# 🔹 ADVANCED / SYSTEM THINKING (Senior-level)
+
+### 1️⃣3️⃣ Memory layout of 2D arrays
+
+**Problem**
+
+> Explain how 2D arrays are stored in memory.
+
+**Follow-up**
+
+* Row-major vs column-major
+* Cache friendliness
+
+---
+
+### 1️⃣4️⃣ Pass 2D array to function
+
+**Problem**
+
+> Why column size is mandatory?
+
+**Expected explanation**
+
+* Array decay
+* Pointer arithmetic
+
+---
+
+### 1️⃣5️⃣ Dynamic 2D array
+
+**Problem**
+
+> Create a dynamic 2D array without using `vector`.
+
+**Follow-up**
+
+* Memory cleanup
+* Exception safety
+
+---
+
+### 1️⃣6️⃣ Use `vector<vector<int>>` vs raw arrays
+
+**Problem**
+
+> Compare performance and safety.
+
+---
+
+### 1️⃣7️⃣ Flatten a 2D array
+
+**Problem**
+
+> Convert a matrix into a 1D array.
+
+**Follow-up**
+
+* Index mapping formula
+
+---
+
+### 1️⃣8️⃣ Submatrix sum (prefix sum)
+
+**Problem**
+
+> Answer multiple range-sum queries efficiently.
+
+---
+
+# 🔹 EMBEDDED / REAL-WORLD (Very relevant for you)
+
+### 1️⃣9️⃣ Sensor data matrix
+
+**Problem**
+
+> Given a sensor data matrix, detect abnormal values row-wise.
+
+**Tests**
+
+* Defensive coding
+* Bound checks
+
+---
+
+### 2️⃣0️⃣ Thread-safe matrix update
+
+**Problem**
+
+> Multiple threads update different rows — how do you protect data?
+
+**Expected**
+
+* Mutex per row
+* Lock granularity
+
+---
+
+# 🔹 COMMON TRAPS INTERVIEWERS CHECK
+
+❌ Uninitialized min/max
+❌ Wrong loop variable in inner loop
+❌ Assuming square matrix
+❌ Using `sizeof` inside function
+❌ Out-of-bounds access
+❌ Forgetting to pass row/column sizes
+
+---
+
+# 🔹 HOW TO ANSWER AS A 5+ YEAR ENGINEER ⭐
+
+When coding, **say this out loud**:
+
+* Time complexity
+* Space complexity
+* Edge cases
+* Why you chose this approach
+
+Example:
+
+> “This solution runs in O(R×C) time with O(1) extra space and handles rectangular matrices safely.”
+

@@ -1,0 +1,134 @@
+#include <iostream>
+using namespace std;
+
+bool findElement(int arr[][3], int row, int col, int val) {
+    for(int i=0;i<row;i++) {
+        for(int j=0;j<col;j++) {
+            if(arr[i][j] == val) {
+                return true;
+            }
+        }
+    }
+    return false;
+}
+
+int findMaxElement(int arr[][3], int row, int col) {
+    int max = arr[0][0];
+    for(int i=0;i<row;i++) {
+        for(int j=0;j<col;j++) {
+            if(arr[i][j] > max) {
+                max = arr[i][j];
+            }
+        }
+    }
+    return max;
+}
+
+int findMinElement(int arr[][3], int row, int col) {
+    int min = arr[0][0];
+    for(int i=0;i<row;i++) {
+        for(int j=0;j<col;j++) {
+            if(arr[i][j] < min) {
+                min = arr[i][j];
+            }
+        }
+    }
+    return min;
+}
+void findRowMax(int arr[][3], int rows, int col) {
+    for(int i=0; i<rows;i++) {
+        int rowMax = arr[0][0];
+        for(int j=0; j<col;j++) {
+            if(arr[i][j] > rowMax) {
+                rowMax = arr[i][j];
+            }
+        }
+        cout<<"Highest Element in a row "<<i<<" = "<<rowMax<<endl;
+    }
+}
+void findColMax(int arr[][3], int rows, int col) {
+    for(int j=0; j<col; j++) {
+        int colMax = arr[0][j];
+        for(int i = 1; i<rows;i++) {
+            if(arr[i][j] > colMax) {
+                colMax = arr[i][j];
+            }
+        }
+    cout<<"Highest Element in a Col "<<j<<" = "<<colMax<<endl;
+    }
+}
+
+int sumOfPrimaryDiagonal(int arr[][3]) {
+    int sum = 0;
+    for(int i = 0; i<3;i++) {
+        sum+=arr[i][i];
+    }
+    return sum;
+}
+int sumOfSecondaryDiagonal(int arr[][3]) {
+    int sum =0;
+    for(int i=0;i<3;i++) {
+        sum+= arr[i][3-1-i];
+    }
+    return sum;
+}
+
+int SumOfPriamryandSecondaryDiagonal(int arr[][3]) {
+    int sum = 0;
+    for(int i = 0; i<3; i++) {
+        sum+=arr[i][i];
+        if(i != 3-1-i) {
+            sum+=arr[i][3-1-i];
+        }
+    }
+    return sum;
+}
+int main() {
+    
+    int arr[3][3];  // = {{1,2,3}, {4,5,6}, {7,8,9}};
+    
+    int rows = sizeof(arr) / sizeof(arr[0]);
+    int col = sizeof(arr[0]) / sizeof(arr[0][0]);
+    
+    cout<<"rows = "<<rows<<endl;
+    cout<<"Col = "<<col<<endl;
+    
+    int val;
+    cout<<"Enter value to be checked in Matrix"<<endl;
+    cin>>val;
+
+    
+    for(int i=0;i<rows;i++) {
+        for(int j=0;j<col;j++) {
+            cin>>arr[i][j];
+        }
+    }
+    
+    for(int i=0;i<rows;i++) {
+        for(int j=0;j<col;j++) {
+            cout<<arr[i][j]<< " ";
+        }
+        cout<<endl;
+    }
+    int isValuePresent = findElement(arr, rows, col, val);
+    if(isValuePresent) {
+        cout<<"Entered value is present in Matrix"<<endl;
+    } else {
+        cout<<"Entered value is not present in Matrix"<<endl;
+    }
+    
+    int max = findMaxElement(arr, rows, col);
+    cout<<"Maximun Element in Matrix = "<<max<<endl;
+    
+    int min = findMinElement(arr, rows, col);
+    cout<<"Minimum Element in Matrix = "<<min<<endl;
+    
+    findRowMax(arr,rows,col);
+    findColMax(arr,rows,col);
+    
+    cout<<"Sum of Primary Diagonal = "<<sumOfPrimaryDiagonal(arr)<<endl;
+    cout<<"Sum of Secondary Diagonal = "<<sumOfSecondaryDiagonal(arr)<<endl;
+    cout<<"Sum of Priamry and Secondary Diagonal Elements = "
+    <<SumOfPriamryandSecondaryDiagonal(arr)<<endl;
+    return 0;
+}
