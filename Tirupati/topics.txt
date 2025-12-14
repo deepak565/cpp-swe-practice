@@ -1,0 +1,20 @@
+stringview
+c++17,20,23
+vector 100 elements
+class vector
+moveconstr
+copyassignment
+namespace
+template
+lambda
+resource acquisation RAII
+COPY CONSTRU
+DESRTRU
+PTR WHY HOW wchar_tOOPS
+variadic
+new
+operator new
+null vs nullptr
+malloc
+dynamic array creation
+wchar_t
